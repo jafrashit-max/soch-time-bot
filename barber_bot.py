@@ -311,10 +311,14 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
         except Exception:
             pass
+elif query.data.startswith("cancel_"):
+    bid = int(query.data.split("_")[1])
 
-    elif data == "cancel":
-        await query.edit_message_text("❌ Запись отменена.\n\nНапишите /start чтобы начать заново.")
-
+    if bid in bookings:
+        del bookings[bid]
+        await query.edit_message_text("❌ Запись отменена")
+    else:
+        await query.edit_message_text("❌ Запись не найдена")
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
