@@ -71,7 +71,7 @@ async def my_bookings(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
      keyboard = [
     [InlineKeyboardButton("❌ Bekor qilish", callback_data=f"cancel_{bid}")]
-]вот
+]
         await update.message.reply_text(
             text,
             reply_markup=InlineKeyboardMarkup(keyboard)
