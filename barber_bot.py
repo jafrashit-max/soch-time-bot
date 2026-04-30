@@ -301,16 +301,18 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 ),
                 parse_mode="Markdown"
             )
-        except Exception:
-            pass
-if query.data.startswith("cancel_"):
-    bid = int(query.data.split("_")[1])
+      except Exception:
+    pass
 
-    if bid in bookings:
-        del bookings[bid]
-        await query.edit_message_text("❌ Запись отменена")
-    else:
-        await query.edit_message_text("❌ Запись не найдена")
+     if query.data.startswith("cancel_"):
+        bid = int(query.data.split("_")[1])
+
+        if bid in bookings:
+            del bookings[bid]
+            await query.edit_message_text("❌ Запись отменена")
+        else:
+            await query.edit_message_text("❌ Запись не найдена")
+   
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
