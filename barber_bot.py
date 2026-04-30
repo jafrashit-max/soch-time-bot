@@ -310,7 +310,7 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
         except Exception:
             pass
-elif query.data.startswith("cancel_"):
+if query.data.startswith("cancel_"):
     bid = int(query.data.split("_")[1])
 
     if bid in bookings:
