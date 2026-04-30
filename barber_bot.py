@@ -48,7 +48,39 @@ def fmt_bookings_for_admin():
             f"└ 🕐 {b['created_at']}\n"
         )
     return "\n".join(lines)
+return "\n".join(lines)
 
+
+
+async def my_bookings(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+
+    user_bookings = [
+        (bid, b) for bid, b in bookings.items() if b["user_id"] == user_id
+    ]
+
+    if not user_bookings:
+        await update.message.reply_text("Sizda yozuvlar yo‘q ❌")
+        return
+
+    for bid, b in user_bookings:
+        text = (
+            f"✂️ {b['service']}\n"
+            f"👨‍🔧 {b['master']}\n"
+            f"📅 {b['day']} {b['time']}"
+        )
+
+     keyboard = [
+    [InlineKeyboardButton("❌ Bekor qilish", callback_data=f"cancel_{bid}")]
+]вот
+        await update.message.reply_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
+
+
+# 👇 дальше уже идёт start()
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     context.user_data.clear()
