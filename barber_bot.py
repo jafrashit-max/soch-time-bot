@@ -69,17 +69,10 @@ async def my_bookings(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"📅 {b['day']} {b['time']}"
         )
 
-     keyboard = [
-    [InlineKeyboardButton("❌ Bekor qilish", callback_data=f"cancel_{bid}")]
-]
-        await update.message.reply_text(
-            text,
-            reply_markup=InlineKeyboardMarkup(keyboard)
-        )
+    
+        await update.message.reply_text(text)
 
 
-# 👇 дальше уже идёт start()
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     context.user_data.clear()
