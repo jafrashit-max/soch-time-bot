@@ -6,7 +6,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-TOKEN = "8578169848:AAHYCONiST92PsFVhy_IRzmfdQpK1jHwQjs"
+TOKEN = "8578169848:AAF3r_7tienkbAb4afBe9W63wz2wGxDtkCo"
 
 # ⚠️ Замени на свой Telegram ID (узнать можно у @userinfobot)
 ADMIN_ID = 1314440253
