@@ -299,9 +299,9 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     f"🕐 Время: *{d['time']}*\n"
                     f"💰 Сумма: *{d['price']:,} сум*"
                 ),
-                parse_mode="Markdown"
-            )
-      except Exception:
+           try:
+    pass
+except Exception:
     pass
 
      if query.data.startswith("cancel_"):
